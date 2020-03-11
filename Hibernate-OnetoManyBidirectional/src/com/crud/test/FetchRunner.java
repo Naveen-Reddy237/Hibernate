@@ -15,21 +15,22 @@ FatherDto pm=session.get(FatherDto.class, 1);
 	SonDto co=session.get(SonDto.class,1);
 	System.out.println(co);
 	Transaction transaction=session.beginTransaction();
-  //  HusbandDto hl=session.get(HusbandDto.class, 1);
-  //  WifeDto dl=session.get(WifeDto.class, 1);
-   // System.out.println(hl);
-   // System.out.println(dl);
-    	//if(hl!=null&&dl!=null)
-    	//{
-    	//	session.delete(hl);
-    	//	session.delete(dl);
-    		///transaction.commit();
-    		//session.close();
-    	//	sessionfact.close();
-    	//}
-    	//else 
-    	//{
-    	//	System.out.println("Pk Doesnot Exist");
-    	//}
+	
+	// for delete 
+    FatherDto pm=session.get(FatherDto.class, 1);
+ SonDto co=session.get(SonDto.class,1);
+   
+    	if(pm!=null&&co!=null)
+    	{
+    		session.delete(pm);
+    		session.delete(co);
+    		transaction.commit();
+    		session.close();
+    		sessionfact.close();
+    	}
+    	else 
+    	{
+    		System.out.println("Pk Doesnot Exist");
+    	}
 	}
 }
